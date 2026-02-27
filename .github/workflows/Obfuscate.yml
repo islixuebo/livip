@@ -71,8 +71,8 @@ jobs:
           ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
         run: |
           git config set advice.defaultBranchName false
-          git config user.email "islixuebo@qq.com"
-          git config user.name "lixuebo"
+          git config --global user.email "islixuebo@qq.com"
+          git config --global user.name "lixuebo"
           rm -rf ./.github ./.git 
           git init
           git add _worker.js
