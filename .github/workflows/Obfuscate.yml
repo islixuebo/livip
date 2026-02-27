@@ -71,7 +71,7 @@ jobs:
           TOKEN: ${{secrets.REPO_ACCESS_TOKEN}}
         run: |
           git clone https://${{ secrets.REPO_ACCESS_TOKEN }}@github.com/islixuebo/cf-vip.git && cd cf-vip
-          cp ../_worker.js ./
+          cp -f ../_worker.js ./
           git config set advice.defaultBranchName false
           git config --global init.defaultBranch main
           git config --global user.email "islixuebo@qq.com"
