@@ -70,15 +70,17 @@ jobs:
         env:
           TOKEN: ${{secrets.REPO_ACCESS_TOKEN}}
         run: |
+          mkdir ./tmp
+          cp _worker.js ./tmp/
+          cd ./tmp
           git config set advice.defaultBranchName false
           git config --global init.defaultBranch main
           git config --global user.email "islixuebo@qq.com"
           git config --global user.name "lixuebo"
-          rm -rf ./.github ./.git 
           git init
           git add _worker.js
           git commit -m "commit worker js"
           git branch -M main
           git remote add origin https://${{ secrets.REPO_ACCESS_TOKEN }}@github.com/islixuebo/cf-vip.git
           git push -u origin main --force
-        
+          cd ../ && rm -rf ./tmp
