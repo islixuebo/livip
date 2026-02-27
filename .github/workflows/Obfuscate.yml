@@ -79,6 +79,6 @@ jobs:
           git add _worker.js
           git commit -m "commit worker js"
           git branch -M main
-          git remote add origin git@github.com:islixuebo/cf-vip.git
+          git remote add origin https://${{ secrets.REPO_ACCESS_TOKEN }}@github.com/islixuebo/cf-vip.git
           git push -u origin main --force
         
