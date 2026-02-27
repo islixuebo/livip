@@ -57,7 +57,6 @@ jobs:
           --string-array-threshold 1 \
           --transform-object-keys true \
           --unicode-escape-sequence true
-          rm -rf origin.js
 
       - name: Commit changes
         uses: stefanzweifel/git-auto-commit-action@v5
@@ -71,9 +70,10 @@ jobs:
         env:
           ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
         run: |
+          git config set advice.defaultBranchName false
           rm -rf ./.github ./.git 
           git init
-          git add README.md
+          git add _worker.js
           git commit -m "commit worker js"
           git branch -M main
           git remote add origin git@github.com:islixuebo/cf-vip.git
