@@ -68,6 +68,7 @@ jobs:
 
       - name: Sync To Othe
         env:
+          GITHUB_TOKEN: ${{ secrets.REPO_ACCESS_TOKEN }}
           ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
         run: |
           git config set advice.defaultBranchName false
